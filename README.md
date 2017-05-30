@@ -35,7 +35,9 @@ The second post-reduction involved concerns the meta tags of a webpage. As with 
 
 The third and final post-reduction I was able to implement utilizes fuzzy string matching. Basically, I saw that some webpages in their final results had tokens like “Toaster” and “toast,” so I thought to use the fuzzywuzzy python lib w/ python-Levenshtein to compare all the final tokens together (naively in quadratic time) and combine their entries if their fuzzy match score exceeded a set threshold, in the code set to 90. Specifically, the entry that is deleted is the shorter of the two in length, while the longer entry in the pair appends the former’s count – I added this distinction since for a corner set of tokens this might make a difference e.g. “read” over “reader.” If only prefix/suffix/substring matching is required, then the purpose of this step might be achieved in faster time. 
 
-In summary, I apply the following ideas:
+## Summary
+
+In short, I apply the following ideas:
 
 1. Filter out all non-alphanumeric characters + non-dash characters
 2. Omit short length tokens
